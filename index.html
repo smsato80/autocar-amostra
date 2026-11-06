@@ -51,12 +51,10 @@
       }
       .topbar-in{ max-width:1060px; margin:0 auto; padding:10px 16px 0; }
       .brand-row{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding-bottom:10px; }
-      .brand-badge{
-        background:var(--panel-3); border:1px solid var(--line); border-radius:10px;
-        font-family:"Oswald",sans-serif; font-weight:700; letter-spacing:.04em;
-        padding:6px 10px; font-size:15px; color:var(--ink); white-space:nowrap;
+      .brand-logo{
+        width:54px; height:54px; object-fit:cover; border-radius:10px;
+        border:1px solid var(--line); flex:0 0 auto;
       }
-      .brand-badge em{ font-style:normal; color:var(--yellow); }
       .brand-row .file-name{ color:var(--muted); font-size:14px; }
       .demo-pill{
         margin-left:auto;
@@ -398,7 +396,7 @@
     <header class="topbar">
       <div class="topbar-in">
         <div class="brand-row">
-          <span class="brand-badge">AUTO<em>CAR</em> L&amp;D</span>
+          <img class="brand-logo" src="data:image/jpeg;base64,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" alt="AutoCar L&amp;D" />
           <span class="file-name">Amostra - Site + AIOS</span>
           <span class="demo-pill">DEMONSTRAÇÃO</span>
         </div>
