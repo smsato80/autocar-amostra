@@ -367,6 +367,21 @@
       .ask-row{ display:flex; gap:8px; }
       .ask-row input{ flex:1; background:var(--panel-2); border:1px solid var(--line); border-radius:10px; color:var(--ink); padding:11px 14px; font:inherit; font-size:15.5px; min-width:0; }
       .ask-note{ color:var(--muted-2); font-size:13.5px; margin-top:12px; }
+
+      /* ---------- Slides (apresentacao projetada) ---------- */
+      .slide{ display:none; background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:52px 46px; min-height:64vh; }
+      .slide.active{ display:flex; flex-direction:column; justify-content:center; gap:20px; }
+      .slide .k{ color:var(--yellow); letter-spacing:.14em; font-size:13px; font-weight:700; text-transform:uppercase; }
+      .slide h2{ font-family:Oswald, sans-serif; font-size:clamp(30px, 4.6vw, 54px); line-height:1.1; font-weight:600; }
+      .slide h2 span{ color:var(--yellow); }
+      .slide p{ font-size:clamp(17px, 2vw, 23px); color:var(--muted); line-height:1.55; max-width:36em; }
+      .slide p strong{ color:var(--ink); }
+      .slide .price{ font-size:clamp(36px, 5.4vw, 62px); color:var(--yellow); font-weight:700; line-height:1.05; }
+      .slide-nav{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:16px; }
+      .snav{ background:var(--panel-3); color:var(--ink); border:1px solid var(--line); border-radius:10px; padding:12px 22px; font-size:16px; font-weight:600; cursor:pointer; }
+      .snav:hover{ border-color:var(--yellow); }
+      .slide-count{ color:var(--muted-2); font-size:15px; }
+      @media (max-width:560px){ .slide{ padding:34px 22px; min-height:56vh; } }
 </style>
   <style>.lang-sw{display:inline-flex;gap:4px;margin-left:10px;vertical-align:middle}.lang-sw button{border:1px solid rgba(128,128,128,.45);background:transparent;color:inherit;font:inherit;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;opacity:.75}.lang-sw button.on{opacity:1;background:#c9a24b;border-color:#c9a24b;color:#141414}</style></head>
   <body>
@@ -379,6 +394,7 @@
         </div>
         <nav class="tabs" aria-label="Partes da amostra">
           <button class="tab-btn" data-view="apresentacao">Apresentação</button>
+          <button class="tab-btn" data-view="slides">Slides</button>
           <button class="tab-btn active" data-view="crm">Demo AIOS <span class="tab-badge" id="crmTabBadge">1</span></button>
           <button class="tab-btn" data-view="site">Novo site</button>
           <button class="tab-btn cta" data-view="proposta">Proposta</button>
@@ -439,7 +455,84 @@
         </div>
       </section>
 
-      <!-- ================= CRM ================= -->
+      
+      <!-- ================= SLIDES ================= -->
+      <section class="view" id="view-slides">
+        <div class="slide active">
+          <div class="k">AutoCar L&amp;D · Iwata, Shizuoka</div>
+          <h2>Site novo + <span>AIOS</span></h2>
+          <p>A vitrine e o controle da loja, ligados um ao outro.</p>
+          <p>Amostra com dados de demonstração.</p>
+        </div>
+        <div class="slide">
+          <div class="k">O ponto de partida</div>
+          <h2>Hoje, quem procura a loja na internet <span>não encontra a loja</span></h2>
+          <p>O site está fora do ar. Sem vitrine, o cliente vai para o concorrente que aparece.</p>
+          <p>E quem chama a loja não fica registrado em lugar nenhum.</p>
+        </div>
+        <div class="slide">
+          <div class="k">Passo 1 · A vitrine</div>
+          <h2>O site novo da loja</h2>
+          <p>Estoque com <strong>preço e parcela à mostra</strong>. Simulação de financiamento na hora, sem esperar resposta.</p>
+          <p>Botão de WhatsApp em cada carro. <strong>Vendeu, sai da vitrine na hora.</strong></p>
+        </div>
+        <div class="slide">
+          <div class="k">Passo 2 · O controle</div>
+          <h2>AIOS: o painel da loja</h2>
+          <p><strong>Estoque, interessados, financeiro e dados da loja</strong> num painel só, ligado ao site.</p>
+          <p>Cada pessoa da equipe com seu login.</p>
+        </div>
+        <div class="slide">
+          <div class="k">Novo · AIOS</div>
+          <h2>Pergunte ao sistema</h2>
+          <p>"Quantos carros tenho no estoque?" · "Quem está aguardando contato?" · "Quanto vendeu no mês?"</p>
+          <p>A pergunta é em português, do seu jeito. <strong>A resposta vem dos dados da loja</strong>, não de chute.</p>
+        </div>
+        <div class="slide">
+          <div class="k">WhatsApp</div>
+          <h2>Sem robô atendendo o seu cliente</h2>
+          <p>O botão do site abre a conversa no WhatsApp da loja <strong>e registra o interessado no AIOS</strong>.</p>
+          <p>A automação organiza por dentro. Quem atende o cliente é a equipe da loja.</p>
+        </div>
+        <div class="slide">
+          <div class="k">Segurança</div>
+          <h2>O que é da loja fica protegido</h2>
+          <p><strong>Backup diário</strong> dos dados e monitoramento automático do sistema, dia e noite.</p>
+          <p>Se um dia a loja sair, recebe a exportação dos cadastros. Nada fica preso.</p>
+        </div>
+        <div class="slide">
+          <div class="k">Valores</div>
+          <h2>Implantação</h2>
+          <div class="price">¥500.000</div>
+          <p>Entrada de <strong>¥250.000</strong> na assinatura e <strong>¥250.000</strong> na entrega e no aceite do sistema.</p>
+          <p>O site, avaliado em ¥150.000, entra como cortesia neste pacote. Mensalidade de <strong>¥30.000</strong> por 12 meses, renováveis.</p>
+        </div>
+        <div class="slide">
+          <div class="k">Prazo</div>
+          <h2>Tudo pronto em <span>45 dias</span>, em etapas</h2>
+          <p><strong>Até 15 dias:</strong> o site no ar. <strong>Até 30 dias:</strong> piloto com os carros reais da loja. <strong>Até 45 dias:</strong> tudo completo, com a equipe usando.</p>
+          <p>O relógio anda depois da entrada e da entrega do material da loja.</p>
+        </div>
+        <div class="slide">
+          <div class="k">Sem letra miúda</div>
+          <h2>O que fica fora deste pacote</h2>
+          <p>Robô atendendo cliente no WhatsApp: é fase 2, orçado à parte. Leitura automática de documentos: não incluída.</p>
+          <p>Rescisão com <strong>30 dias</strong> de aviso.</p>
+        </div>
+        <div class="slide">
+          <div class="k">Próximo passo</div>
+          <h2>Conhecer a operação de vocês</h2>
+          <p>Com o material da loja na mão (fotos, serviços e preços), a gente marca a data e <strong>começa pela vitrine</strong>.</p>
+        </div>
+        <div class="slide-nav">
+          <button class="snav" type="button" id="slidePrev">← Anterior</button>
+          <span class="slide-count" id="slideCount">1 / 11</span>
+          <button class="snav" type="button" id="slideNext">Próximo →</button>
+        </div>
+        <p style="color:var(--muted-2); font-size:14px; margin-top:10px;">Dica: no notebook, as setas do teclado também passam os slides.</p>
+      </section>
+
+<!-- ================= CRM ================= -->
       <section class="view active" id="view-crm">
         <div class="crm-shell">
           <div class="crm-head">
@@ -831,6 +924,7 @@
         document.querySelectorAll(".tab-btn").forEach(function (b) {
           b.classList.toggle("active", b.getAttribute("data-view") === name);
         });
+
         document.querySelectorAll(".view").forEach(function (v) {
           v.classList.toggle("active", v.id === "view-" + name);
         });
@@ -1065,6 +1159,27 @@
       if (askInputEl) askInputEl.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); askSubmit(); } });
       document.querySelectorAll("[data-askdemo]").forEach(function (b) {
         b.addEventListener("click", function () { showView("crm"); showCrmTab("pergunte"); });
+      });
+
+/* ---------- Slides ---------- */
+      var slideIdx = 0;
+      function showSlide(n) {
+        var list = document.querySelectorAll("#view-slides .slide");
+        if (!list.length) return;
+        slideIdx = ((n % list.length) + list.length) % list.length;
+        list.forEach(function (s, k) { s.classList.toggle("active", k === slideIdx); });
+        var c = document.getElementById("slideCount");
+        if (c) c.textContent = (slideIdx + 1) + " / " + list.length;
+      }
+      var sp = document.getElementById("slidePrev");
+      var sn = document.getElementById("slideNext");
+      if (sp) sp.addEventListener("click", function () { showSlide(slideIdx - 1); });
+      if (sn) sn.addEventListener("click", function () { showSlide(slideIdx + 1); });
+      document.addEventListener("keydown", function (e) {
+        var v = document.getElementById("view-slides");
+        if (!v || !v.classList.contains("active")) return;
+        if (e.key === "ArrowRight") showSlide(slideIdx + 1);
+        if (e.key === "ArrowLeft") showSlide(slideIdx - 1);
       });
 </script>
   <script>
