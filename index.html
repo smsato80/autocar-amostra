@@ -396,7 +396,291 @@
       .stock-card .sc-note{ color:var(--muted-2); font-size:13px; margin-top:2px; }
       .sim-note{ color:var(--muted); font-size:14px; margin-top:12px; max-width:680px; }
 </style>
-  <style>.lang-sw{display:inline-flex;gap:4px;margin-left:10px;vertical-align:middle}.lang-sw button{border:1px solid rgba(128,128,128,.45);background:transparent;color:inherit;font:inherit;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;opacity:.75}.lang-sw button.on{opacity:1;background:#c9a24b;border-color:#c9a24b;color:#141414}</style></head>
+  <style>.lang-sw{display:inline-flex;gap:4px;margin-left:10px;vertical-align:middle}.lang-sw button{border:1px solid rgba(128,128,128,.45);background:transparent;color:inherit;font:inherit;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;cursor:pointer;opacity:.75}.lang-sw button.on{opacity:1;background:#c9a24b;border-color:#c9a24b;color:#141414}</style>
+  <style>
+/* ============================================================
+   AUTOCAR L&D — CAMADA PREMIUM (revisao-premium)
+   Redesign visual sobre a base aprovada. Nao altera textos,
+   valores, JS nem fluxos: apenas acabamento.
+   Paleta: preto grafite, cinza profundo, branco refinado e
+   amarelo-dourado discreto (identidade oficial preservada).
+   ============================================================ */
+:root{
+  --bg:#0a0b0d;
+  --panel:#121316;
+  --panel-2:#17181c;
+  --panel-3:#1e2025;
+  --line:#27292f;
+  --ink:#f2f1ec;
+  --muted:#a9abb1;
+  --muted-2:#787b82;
+  --yellow:#e6b93d;
+  --yellow-ink:#1a1403;
+  --gold:#c8a24e;
+  --radius:16px;
+}
+html{ scroll-padding-top:110px; }
+body{
+  background:
+    radial-gradient(1100px 480px at 50% -120px, rgba(200,162,78,.07), rgba(0,0,0,0) 60%),
+    var(--bg);
+  letter-spacing:.005em;
+}
+::selection{ background:rgba(230,185,61,.85); color:#171300; }
+:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; border-radius:6px; }
+.wrap{ max-width:1120px; padding:0 20px 72px; }
+.view{ padding-top:32px; animation:premium-in .28s ease both; }
+@keyframes premium-in{ from{ opacity:0; transform:translateY(4px); } to{ opacity:1; transform:none; } }
+@media (prefers-reduced-motion: reduce){
+  .view{ animation:none; }
+  *{ transition:none !important; }
+}
+
+/* ---------- Portal do apresentador (distinto do site) ---------- */
+.topbar{
+  background:rgba(7,8,9,.97);
+  border-bottom:2px solid rgba(200,162,78,.55);
+  box-shadow:0 12px 32px rgba(0,0,0,.35);
+}
+.topbar-in{ max-width:1120px; padding:12px 20px 0; }
+.brand-row{ gap:12px; padding-bottom:12px; }
+.brand-logo{ width:52px; height:52px; border-radius:12px; border:1px solid #34363c; box-shadow:0 4px 14px rgba(0,0,0,.4); }
+.brand-row .file-name{ font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:#8f9299; font-weight:600; }
+.demo-pill{
+  background:transparent; color:var(--gold);
+  border:1px solid rgba(200,162,78,.65);
+  font-size:11px; letter-spacing:.18em; padding:6px 13px;
+}
+.tabs{ gap:6px; padding-bottom:10px; }
+.tab-btn{
+  border-radius:999px; padding:10px 18px; font-size:15.5px;
+  color:#9fa1a8; transition:background .18s ease, color .18s ease;
+}
+.tab-btn:hover{ color:var(--ink); background:#17181c; }
+.tab-btn.active{ background:#1d1f24; color:var(--ink); box-shadow:inset 0 0 0 1px #2e3037; }
+.tab-btn.cta{
+  background:linear-gradient(180deg,#f0c44e,#dfae2f); color:#1a1403;
+  border-radius:999px; margin:0 0 0 6px; padding:10px 20px;
+  box-shadow:0 4px 14px rgba(0,0,0,.35);
+}
+.tab-btn.cta.active{ background:linear-gradient(180deg,#f0c44e,#dfae2f); box-shadow:inset 0 0 0 2px rgba(0,0,0,.3); }
+.tab-badge{ background:var(--gold); }
+
+/* ---------- Tipografia e botoes ---------- */
+.apres h1, .prop h1{
+  font-size:clamp(32px,5.6vw,50px); letter-spacing:.005em; line-height:1.06;
+}
+.lead-text{ font-size:17.5px; line-height:1.6; }
+.btn{
+  border-radius:11px; transition:transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
+}
+.btn:hover{ transform:translateY(-1px); border-color:#43454d; }
+.btn.primary{
+  background:linear-gradient(180deg,#f0c44e,#dfae2f); border-color:#dfae2f; color:#1a1403;
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+}
+.btn.primary:hover{ border-color:#f0c44e; }
+.btn.whats{ box-shadow:0 6px 18px rgba(0,0,0,.3); }
+
+/* ---------- Cards gerais ---------- */
+.step, .includes, .price-card, .box, .kpi{
+  background:linear-gradient(180deg,#16171b,#121316);
+  border-color:var(--line); border-radius:var(--radius);
+  box-shadow:0 14px 34px rgba(0,0,0,.22);
+}
+.step{ padding:24px 22px; }
+.step .num{ color:var(--gold); }
+.includes li::before{ background:var(--gold); border-radius:99px; width:7px; height:7px; top:16px; }
+.try-flow{
+  border:1px solid rgba(200,162,78,.45); background:rgba(200,162,78,.05);
+  border-radius:var(--radius);
+}
+.try-flow h3{ color:var(--gold); }
+.aios-box{
+  border:1px solid var(--line); border-left:4px solid var(--gold);
+  background:linear-gradient(180deg,#16171b,#121316);
+  border-radius:var(--radius); padding:24px 22px;
+  box-shadow:0 14px 34px rgba(0,0,0,.22);
+}
+.aios-box .num{ color:var(--gold); }
+
+/* ---------- Slides ---------- */
+.slide{
+  background:
+    radial-gradient(900px 420px at 85% -10%, rgba(200,162,78,.08), rgba(0,0,0,0) 55%),
+    linear-gradient(180deg,#15161a,#101114);
+  border:1px solid #2b2d33; border-radius:22px;
+  padding:60px 54px; min-height:62vh; gap:22px;
+  box-shadow:0 24px 54px rgba(0,0,0,.35);
+}
+.slide .k{ color:var(--gold); font-size:12.5px; letter-spacing:.2em; }
+.slide h2{ font-weight:600; letter-spacing:.005em; }
+.slide p{ line-height:1.6; }
+.slide .price{ color:var(--yellow); letter-spacing:.01em; }
+.slide .strike{ text-decoration-color:var(--yellow); }
+.slide-logo{ border-radius:16px; border-color:#34363c; box-shadow:0 8px 22px rgba(0,0,0,.35); }
+.snav{
+  border-radius:999px; padding:12px 24px; background:#17181c;
+  transition:border-color .16s ease, transform .16s ease;
+}
+.snav:hover{ border-color:var(--gold); transform:translateY(-1px); }
+.slide-count{ font-variant-numeric:tabular-nums; letter-spacing:.06em; }
+
+/* ---------- AIOS: software empresarial ---------- */
+.crm-shell{
+  border:1px solid #2b2d33; border-radius:20px;
+  box-shadow:0 24px 54px rgba(0,0,0,.35); background:#101114;
+}
+.crm-head{
+  background:linear-gradient(180deg,#191a1f,#131418);
+  padding:20px 24px; border-bottom:1px solid #26282e;
+}
+.crm-head h2{ font-size:23px; font-weight:600; letter-spacing:.015em; }
+.crm-logo{ width:48px; height:48px; border-radius:12px; border-color:#34363c; }
+.avatar{ background:linear-gradient(180deg,#f0c44e,#dfae2f); }
+.crm-tabs{ padding:16px 24px 0; gap:8px; }
+.crm-tab{
+  border-radius:999px; padding:9px 17px; background:#17181c; border-color:#2a2c32;
+  transition:border-color .16s ease, color .16s ease, background .16s ease;
+}
+.crm-tab:hover{ color:var(--ink); border-color:#43454d; }
+.crm-tab.active{
+  background:linear-gradient(180deg,#f0c44e,#dfae2f); border-color:#dfae2f; color:#1a1403;
+}
+.crm-body{ padding:24px; }
+.kpis{ gap:14px; margin-bottom:22px; }
+.kpi{ padding:18px; border-top:2px solid #33353c; }
+.kpi .k-label{
+  font-size:12.5px; text-transform:uppercase; letter-spacing:.09em; color:#8f9299; font-weight:600;
+}
+.kpi .k-value{ font-size:33px; margin-top:6px; }
+.kpi .k-value.money{ color:var(--yellow); }
+.car-row, .lead-row{
+  background:linear-gradient(180deg,#16171b,#121316);
+  border-color:var(--line); border-radius:14px;
+  box-shadow:0 10px 26px rgba(0,0,0,.18);
+}
+.car-row img{ border-radius:10px; }
+.car-row .c-price, .lead-row .l-name{ letter-spacing:.005em; }
+.fin-table th{
+  font-size:12.5px; text-transform:uppercase; letter-spacing:.09em; color:#8f9299;
+  padding:12px 10px;
+}
+.fin-table td{ padding:13px 10px; }
+.fin-table tbody tr{ transition:background .14s ease; }
+.fin-table tbody tr:hover{ background:rgba(255,255,255,.025); }
+.field input, .field select, .status-sel, .ask-row input{
+  background:#0e0f11; border-color:#2e3036; border-radius:11px;
+  transition:border-color .16s ease, box-shadow .16s ease;
+}
+.field input:focus, .field select:focus, .status-sel:focus, .ask-row input:focus{
+  border-color:var(--gold); box-shadow:0 0 0 3px rgba(200,162,78,.22); outline:none;
+}
+.ask-chip{
+  border-radius:999px; background:#17181c; border-color:#2a2c32;
+  transition:border-color .16s ease, color .16s ease;
+}
+.ask-chip:hover{ border-color:var(--gold); color:var(--yellow); }
+.ask-msg{ border-radius:14px; }
+.ask-msg.a{ border-left:3px solid var(--gold); background:#17181c; }
+.tag{ letter-spacing:.07em; }
+
+/* ---------- Site do cliente: experiencia clara, distinta do portal ---------- */
+.browser{
+  border:1px solid #2b2d33; border-radius:20px; background:#f4f3ef;
+  box-shadow:0 24px 54px rgba(0,0,0,.35); color:#17181a;
+}
+.browser-bar{ background:#e8e6df; border-bottom:1px solid #d6d3c9; flex-wrap:wrap; }
+.dots i{ background:#c9c6bb; }
+.url-pill{ background:#ffffff; border-color:#d6d3c9; color:#5a5c60; }
+.url-pill b{ color:#1d9e4b; }
+#view-site .lang-sw button{ color:#3c3e42; border-color:rgba(60,62,66,.4); }
+#view-site .lang-sw button.on{ background:var(--gold); border-color:var(--gold); color:#171300; opacity:1; }
+.site-hero img{ height:380px; }
+.site-hero .shade{
+  background:linear-gradient(90deg, rgba(6,7,9,.9) 28%, rgba(6,7,9,.48) 62%, rgba(6,7,9,.14));
+  padding:36px;
+}
+.site-hero h2{ letter-spacing:.005em; }
+.site-hero{ color:#f2f1ec; }
+.site-hero h2{ color:#f5f4ee; }
+.site-hero p{ color:#eceae2; }
+.site-sec{ padding:34px 30px; }
+.site-sec h3{ color:#141518; letter-spacing:.01em; }
+.site-sec .sub{ color:#5d5f64; }
+.stock-grid{ gap:18px; }
+.stock-card{
+  background:#ffffff; border:1px solid #e1ded4; border-radius:16px;
+  box-shadow:0 12px 28px rgba(23,24,26,.08);
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+@media (hover:hover){
+  .stock-card:hover{ transform:translateY(-3px); border-color:#d8c690; box-shadow:0 18px 36px rgba(23,24,26,.13); }
+}
+.stock-card img{ height:205px; }
+.stock-card .sc-body{ padding:18px 20px 20px; }
+.stock-card .sc-name{ color:#17181a; font-size:17.5px; }
+.stock-card .sc-meta{ color:#62646a; }
+.stock-card .sc-price{ color:#8a6d1c; font-size:24px; margin-top:8px; }
+.stock-card .sc-month{ color:#62646a; }
+.stock-card .sc-note{ color:#8b8d91; }
+#view-site .stock-card .btn{
+  background:#17181a; border-color:#17181a; color:#f5f3ec;
+}
+#view-site .stock-card .btn:hover{ border-color:#000000; }
+#view-site .stock-card .btn.primary{
+  background:linear-gradient(180deg,#f0c44e,#dfae2f); border-color:#dfae2f; color:#1a1403; box-shadow:none;
+}
+.sim-box{
+  background:#ffffff; border:1px solid #e1ded4; border-radius:16px; padding:22px;
+  box-shadow:0 12px 28px rgba(23,24,26,.07);
+}
+#view-site .field label{ color:#4c4e52; }
+#view-site .field input, #view-site .field select{
+  background:#ffffff; border-color:#cfccc0; color:#17181a; border-radius:11px;
+}
+#view-site .field input:focus, #view-site .field select:focus{
+  border-color:var(--gold); box-shadow:0 0 0 3px rgba(200,162,78,.25); outline:none;
+}
+.sim-result{ border-top-color:#e7e4da; }
+.sim-result .sr-label{ color:#5d5f64; font-weight:600; }
+.sim-result .sr-value{ color:#8a6d1c; }
+.sim-result .sr-value small{ color:#62646a !important; }
+.sim-note{ color:#5d5f64; }
+.site-foot{
+  background:#101114; border-top:1px solid #26282e; color:#a9abb1; padding:20px 30px;
+}
+.site-foot strong{ color:#f2f1ec !important; }
+
+/* ---------- Proposta ---------- */
+.prop .price-card.feature{ border-color:rgba(200,162,78,.7); }
+.price-card .p-label{ color:var(--gold); }
+.price-card .p-value{ letter-spacing:.01em; }
+
+/* ---------- Modal e toast ---------- */
+.modal{ border-radius:20px 20px 0 0; box-shadow:0 -18px 44px rgba(0,0,0,.45); }
+.toast{
+  background:linear-gradient(180deg,#f0c44e,#dfae2f); border-radius:999px;
+  box-shadow:0 14px 34px rgba(0,0,0,.45);
+}
+
+/* ---------- Ajustes finos mobile ---------- */
+@media (max-width:760px){
+  .wrap{ padding:0 14px 56px; }
+  .view{ padding-top:24px; }
+  .slide{ padding:38px 24px; border-radius:18px; min-height:56vh; }
+  .crm-body{ padding:18px 16px; }
+  .crm-head{ padding:16px; }
+  .crm-tabs{ padding:14px 16px 0; }
+  .site-sec{ padding:26px 18px; }
+  .site-hero .shade{ padding:24px 20px; }
+  .site-hero img{ height:470px; }
+  .browser-bar{ gap:8px; }
+  .url-pill{ order:3; flex:1 1 100%; max-width:none; }
+  .kpi .k-value{ font-size:29px; }
+}
+
+  </style></head>
   <body>
     <header class="topbar">
       <div class="topbar-in">
